@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function generatePopulationData(distribution) {
-    // Generate population data based on the chosen distribution
-    // Example for normal distribution with random values:
+    // Placeholder for generating population data based on the chosen distribution
+    // Replace this with your actual data generation logic
     const data = [];
     for (let i = 0; i < 1000; i++) {
       data.push(Math.random() * 100);
@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function generateSamplingDistribution(populationData, sampleSize) {
-    // Generate sampling distribution of sample means using the given sample size
+    // Placeholder for generating sampling distribution using the given sample size
+    // Replace this with your actual sampling distribution logic
     const samplingDistribution = [];
     for (let i = 0; i < 1000; i++) {
       const sample = [];
@@ -48,62 +49,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function plotBarChart(canvas, data, title) {
-    // Implement code to plot a bar chart on the canvas using the provided data
-    // Example: Display a simple bar chart using Chart.js library
-    new Chart(canvas, {
-      type: 'bar',
-      data: {
-        labels: Array.from({ length: data.length }, (_, i) => i + 1),
-        datasets: [{
-          label: title,
-          data: data,
-          backgroundColor: 'rgba(54, 162, 235, 0.6)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
+    // Placeholder for plotting a bar chart using the provided data on the canvas
+    // Replace this with your actual charting code (e.g., Chart.js or other libraries)
+    console.log("Plotting bar chart with data:", data);
   }
 
   function plotLineChart(canvas, data, title) {
-    // Implement code to plot a line chart on the canvas using the provided data
-    // Example: Display a simple line chart using Chart.js library
-    new Chart(canvas, {
-      type: 'line',
-      data: {
-        labels: Array.from({ length: data.length }, (_, i) => i + 1),
-        datasets: [{
-          label: title,
-          data: data,
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
+    // Placeholder for plotting a line chart using the provided data on the canvas
+    // Replace this with your actual charting code (e.g., Chart.js or other libraries)
+    console.log("Plotting line chart with data:", data);
   }
 
   function calculateMean(data) {
-    // Calculate mean of an array
+    // Placeholder for calculating mean of an array
+    // Replace this with your actual mean calculation logic
     return data.reduce((acc, val) => acc + val, 0) / data.length;
   }
 
   function calculateStdDev(data) {
-    // Calculate standard deviation of an array
+    // Placeholder for calculating standard deviation of an array
+    // Replace this with your actual standard deviation calculation logic
     const mean = calculateMean(data);
     const variance = data.reduce((acc, val) => acc + Math.pow(val - mean, 2), 0) / data.length;
     return Math.sqrt(variance);
