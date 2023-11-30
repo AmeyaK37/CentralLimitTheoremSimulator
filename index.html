@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Central Limit Theorem Simulator</title>
+</head>
+<body>
+  <h1>Central Limit Theorem Simulator</h1>
+ 
+  <div class="controls">
+    <label for="sampleSize">Select Sample Size:</label>
+    <select id="sampleSize">
+      <option value="3">3</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </select>
+   
+    <label for="distribution">Select Distribution:</label>
+    <select id="distribution">
+      <option value="normal">Normal</option>
+      <option value="uniform">Uniform</option>
+      <option value="bimodal">Bimodal</option>
+    </select>
+   
+    <button id="simulateBtn">Simulate</button>
+  </div>
+ 
+  <div class="population-chart">
+    <h2>Population Distribution</h2>
+    <canvas id="populationCanvas"></canvas>
+  </div>
+ 
+  <div class="sampling-chart">
+    <h2>Sampling Distribution of Sample Means</h2>
+    <canvas id="samplingCanvas"></canvas>
+    <p>Mean of Sampling Distribution: <span id="samplingMean"></span></p>
+    <p>Standard Deviation of Sampling Distribution: <span id="samplingStdDev"></span></p>
+  </div>
+ 
+  <script src="js/script.js"></script>
+</body>
+</html>
