@@ -23,21 +23,73 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function generatePopulationData(distribution) {
-    // Placeholder for generating population data based on the chosen distribution
-    // Replace this with your actual data generation logic
-    const data = [];
-    for (let i = 0; i < 1000; i++) {
+    // Generate population data based on the chosen distribution
+    let data = [];
+    switch (distribution) {
+      case "normal":
+        // Generate data for a normal distribution
+        data = generateNormalDistribution(1000);
+        break;
+      case "uniform":
+        // Generate data for a uniform distribution
+        data = generateUniformDistribution(1000);
+        break;
+      case "bimodal":
+        // Generate data for a bimodal distribution
+        data = generateBimodalDistribution(1000);
+        break;
+      default:
+        // Default to a normal distribution
+        data = generateNormalDistribution(1000);
+        break;
+    }
+    return data;
+  }
+
+  function generateNormalDistribution(size) {
+    // Generate data for a normal distribution
+    const mean = 50;
+    const stdDev = 10;
+    let data = [];
+    for (let i = 0; i < size; i++) {
+      data.push(randomNormalDistribution(mean, stdDev));
+    }
+    return data;
+  }
+
+  function generateUniformDistribution(size) {
+    // Generate data for a uniform distribution
+    let data = [];
+    for (let i = 0; i < size; i++) {
       data.push(Math.random() * 100);
     }
     return data;
   }
 
+  function generateBimodalDistribution(size) {
+    // Generate data for a bimodal distribution
+    const data = [];
+    for (let i = 0; i < size; i++) {
+      data.push(Math.random() < 0.5 ? Math.random() * 30 : Math.random() * 70);
+    }
+    return data;
+  }
+
+  function randomNormalDistribution(mean, stdDev) {
+    // Generate a random value from a normal distribution
+    let u = 0;
+    let v = 0;
+    while (u === 0) u = Math.random();
+    while (v === 0) v = Math.random();
+    const value = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+    return mean + stdDev * value;
+  }
+
   function generateSamplingDistribution(populationData, sampleSize) {
-    // Placeholder for generating sampling distribution using the given sample size
-    // Replace this with your actual sampling distribution logic
-    const samplingDistribution = [];
+    // Generate sampling distribution using the given sample size
+    let samplingDistribution = [];
     for (let i = 0; i < 1000; i++) {
-      const sample = [];
+      let sample = [];
       for (let j = 0; j < sampleSize; j++) {
         const randomIndex = Math.floor(Math.random() * populationData.length);
         sample.push(populationData[randomIndex]);
@@ -61,14 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function calculateMean(data) {
-    // Placeholder for calculating mean of an array
-    // Replace this with your actual mean calculation logic
+    // Calculate mean of an array
     return data.reduce((acc, val) => acc + val, 0) / data.length;
   }
 
   function calculateStdDev(data) {
-    // Placeholder for calculating standard deviation of an array
-    // Replace this with your actual standard deviation calculation logic
+    // Calculate standard deviation of an array
     const mean = calculateMean(data);
     const variance = data.reduce((acc, val) => acc + Math.pow(val - mean, 2), 0) / data.length;
     return Math.sqrt(variance);
